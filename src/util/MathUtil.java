@@ -14,4 +14,17 @@ public final class MathUtil {
 
         return factorial;
     }
+
+    public static void swap(int[] array, int position1, int position2) {
+        // Swaps elements in an array
+
+        // Copy the first position's element
+        int temp = array[position1];
+
+        // Assign to the second element
+        array[position1] = array[position2];
+
+        // Assign to the first element
+        array[position2] = temp;
+    }
 }

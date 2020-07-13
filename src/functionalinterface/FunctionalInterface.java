@@ -18,8 +18,7 @@ public class FunctionalInterface {
         List<User> users = new ArrayList<>();
         User user;
         for (int i = 0; i < 5 ; i++) {
-            user = new User("Aman".concat(String.valueOf(i)),
-                    new Random().nextInt(2)==1 ? true : false);
+            user = new User("Aman".concat(String.valueOf(i)),new Random().nextInt(2) == 1);
             users.add(user);
         }
 
@@ -39,6 +38,7 @@ public class FunctionalInterface {
     }
 
     static void PredicateExample(List<User> users ) {
+
         users.removeIf(new Predicate<User>() {
             @Override
             public boolean test(User user) {
@@ -54,19 +54,17 @@ public class FunctionalInterface {
 
     // Consumer takes an input, performs action and no output is returned
     static void ConsumerExample(List<User> users ) {
-        users.stream().forEach( user -> {
-            calculateTax(user);
-        });
+        users.stream().forEach(FunctionalInterface::calculateTax);
     }
 
     //Function Takes T as input, performs action and returns R as output
     static Stream<BigInteger> FunctionExample(List<User> users) {
-        return users.stream().map(user -> calculateIncomeAfterTax(user));
+        return users.stream().map(FunctionalInterface::calculateIncomeAfterTax);
     }
 
     //Function no input, performs action and returns an output
     static IntStream SupplierExample() {
-        return IntStream.generate(() -> getNextRandomNumber());
+        return IntStream.generate(FunctionalInterface::getNextRandomNumber);
     }
 
     private static Integer getNextRandomNumber() {

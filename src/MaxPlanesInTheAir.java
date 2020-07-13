@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -6,9 +7,9 @@ public class MaxPlanesInTheAir {
     public static int findMaxPlanesInTheAir(List<Flight> flights) {
         int maxFlights = 0;
 
-        flights.sort((t1, t2) -> t1.startTime - t1.startTime);
+        flights.sort(Comparator.comparingInt(t -> t.startTime));
 
-        PriorityQueue<Flight> flightsInTheAir = new PriorityQueue<>((t1, t2) -> t1.endTime - t2.endTime);
+        PriorityQueue<Flight> flightsInTheAir = new PriorityQueue<>(Comparator.comparingInt(t -> t.endTime));
 
         for (Flight flight: flights) {
             while(!flightsInTheAir.isEmpty() && flightsInTheAir.peek().endTime < flight.startTime) {
