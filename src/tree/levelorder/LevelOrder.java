@@ -17,6 +17,7 @@ public class LevelOrder {
 
         while (!queue.isEmpty()) {
             TreeNode currentNode = queue.poll();
+            System.out.println(currentNode.getData());
             if (currentNode.getLeft() != null) {
                 queue.add(currentNode.getLeft());
             }
@@ -59,7 +60,6 @@ public class LevelOrder {
         Queue<TreeNode> queue = new LinkedList<>();
 
         queue.add(root);
-        queue.add(null);
 
         while (!queue.isEmpty()) {
             int count = queue.size();
