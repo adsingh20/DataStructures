@@ -40,7 +40,7 @@ public class LeftMostRepeatingCharacter {
             }
         }
 
-        return result == Integer.MAX_VALUE ? -1 : result;
+        return result == Integer.MAX_VALUE ? - 1 : result;
     }
 
     private static int findLeftMostRepeatingCharacterEfficientSpaceSolution(String str1) {

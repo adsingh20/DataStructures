@@ -1,6 +1,6 @@
 package binarysearchtree;
 
-import tree.TreeNode;
+import tree.dto.TreeNode;
 
 public class InsertInTree {
 

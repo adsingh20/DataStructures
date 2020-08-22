@@ -16,6 +16,7 @@ public class LargestRectangularArea {
                 current = arr[top] * (stack.isEmpty() ? i :(i - stack.peek() - 1));
                 result = Math.max(current, result);
             }
+            stack.push(i++);
         }
 
         while (stack.isEmpty()) {
